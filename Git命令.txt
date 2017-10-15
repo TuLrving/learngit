@@ -98,6 +98,10 @@ git merge --no-ff -m“描述”+分支   使用--no-ff命令表示禁用 fast forward
 
  git config --global alias.st status    配置别名，将status用st代替
 
+ci commit
+co checkout
+st status
+br branch
 
 
 
