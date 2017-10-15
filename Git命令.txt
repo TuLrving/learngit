@@ -1,0 +1,53 @@
+mkdir+文件名 创建一个目录
+cd+文件名 打开该目录
+pwd 显示当前目录
+cat +文件名。显示文件内容
+
+git init 命令把这个目录变成Git可以管理的仓库
+git add 命令把文件添加到仓库（文件一定要放在创建的目录下，子目录也行）
+git commit 命令把文件提交到仓库
+git status 命令可以让我时刻掌握仓库当前的状态
+git diff 命令能看到具体修改的内容
+git log 命令能看到版本的提交历史记录，嫌输出信息太多，可以使用git log --pretty=oneline
+git reflog 用来记录命令历史
+Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交3628164...882e1e0（注意我的提交ID和你的肯定不一样），
+上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+git reset 命令重置到某一个版本 git reset --hard HEAD
+git reset --hard +版本id 能够到任何一个版本
+git checkout -- +文件名   将该文件里在工作区未保存到暂存区的删除
+git reset HEAD read +文件名 将该文件在暂存区但是还未提交的删除
+rm +文件名。删除文件。但是使用git checkout -- +文件名
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+git clone git@github.com:michaelliao/gitskills.git将github克隆到本地
+git checkout -b dev 创建dev分支，然后切换到dev分支，
+相当于git branch dev
+      git checkout dev
+使用git branch 命令可以查看所有分支，当前分支前会标有一个*号
+git checkout master 切换分支，
+git merge +分支名 将该分支合并到 当前分支
+git branch -d +分支名。 删除分支
+ 
+   总之
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+
+git log --graph 查看分支记录图
+
+git log --abbrev-commit查看简写的commit
+
+
+git merge --no-ff -m“描述”+分支   使用--no-ff命令表示禁用 fast forward
+            -m因为本次合并要创建一个新的commit，要使用-m描述
+合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
